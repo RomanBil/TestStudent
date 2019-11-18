@@ -10,22 +10,11 @@ using System.Windows.Forms;
 
 namespace Test_Client
 {
-    public partial class Form1 : Form
+    public partial class ListTest : Form
     {
-        public Form1()
+        public ListTest()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ListTest listTest = new ListTest();
-
-            Hide();
-
-            listTest.ShowDialog();
-
-            Close();
         }
     }
 }
