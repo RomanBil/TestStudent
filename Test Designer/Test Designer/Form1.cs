@@ -23,6 +23,19 @@ namespace Test_Designer
         public Form1()
         {
             InitializeComponent();
+
+            test();
+        }
+
+        private void test()
+        {
+            ScrollBar vScrollBar1 = new VScrollBar();
+
+            vScrollBar1.Dock = DockStyle.Right;
+
+            vScrollBar1.Scroll += (sender, e) => { panel1.VerticalScroll.Value = vScrollBar1.Value; };
+            
+            panel1.Controls.Add(vScrollBar1);
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -49,12 +62,12 @@ namespace Test_Designer
 
             listViewQuestion.Items.Add(question.ToString());
 
-            groupBox1.Controls.Clear();
+            panel1.Controls.Clear();
         }
 
         private void buttonShow_Click(object sender, EventArgs e)
         {
-            groupBox1.Controls.Clear();
+            panel1.Controls.Clear();
 
             point = new Point(0, 0);
 
@@ -68,10 +81,12 @@ namespace Test_Designer
 
                 point.Y += 20;
 
-                groupBox1.Controls.Add(checkBox);
+                panel1.Controls.Add(checkBox);
 
                 comboBoxes.Add(checkBox);
             }
+
+            test();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
