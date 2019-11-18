@@ -16,6 +16,8 @@ namespace Test_Designer
 
         private List<CheckBox> comboBoxes = new List<CheckBox>();
 
+        private Point point = new Point(0, 0);
+
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace Test_Designer
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            Question question = new Question() { TextQuestion = textBoxQuestion.Text };
+            Question question = new Question() { TextQuestion = textBoxQuestion.Text, Answers = new List<Answer>() };
 
             if (comboBoxes.Count > 0)
             {
@@ -44,20 +46,35 @@ namespace Test_Designer
             Questions.Add(question);
 
             listViewQuestion.Items.Add(question.ToString());
+
+            groupBox1.Controls.Clear();
         }
 
         private void buttonShow_Click(object sender, EventArgs e)
         {
             groupBox1.Controls.Clear();
 
+            point = new Point(0, 0);
+
             for (int i = 0; i < numericUpDown2.Value; i++)
             {
-                CheckBox comboBox = new CheckBox();
+                CheckBox checkBox = new CheckBox();
 
-                groupBox1.Controls.Add(comboBox);
+                checkBox.Location = point;
 
-                comboBoxes.Add(comboBox);
+                checkBox.Text = "text";
+
+                point.Y += 20;
+
+                groupBox1.Controls.Add(checkBox);
+
+                comboBoxes.Add(checkBox);
             }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
