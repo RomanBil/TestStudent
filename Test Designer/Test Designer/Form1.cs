@@ -16,5 +16,15 @@ namespace Test_Designer
         {
             InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            groupBox1.Controls.Clear();
+
+            for (int i = 0; i < numericUpDown2.Value; i++)
+            {
+                groupBox1.Controls.Add(new CheckBox());
+            }
+        }
     }
 }
