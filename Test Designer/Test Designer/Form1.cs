@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Test_Designer
 {
@@ -74,7 +76,25 @@ namespace Test_Designer
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            FileStream stream = File.OpenWrite(@"C:\Users\йййй\Source\Repos\TestStudent\Test Designer\Test Designer\XMDocument\Tests.xml");
 
+            XmlSerializer ser = new XmlSerializer(typeof(Test));
+
+            Test test = new Test();
+
+            test.Author = textBoxAuthor.Text;
+
+            test.CreateDate = DateTime.Now;
+
+            test.Name = textBoxTheme.Text;
+
+            test.Subject = textBoxSubject.Text;
+
+            test.Questions = Questions;
+
+            ser.Serialize(stream, test);
+
+            stream.Close();
         }
     }
 }

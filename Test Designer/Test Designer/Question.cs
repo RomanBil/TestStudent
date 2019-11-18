@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Test_Designer
 {
-    class Question
+    [Serializable]
+    public class Question
     {
         public string TextQuestion { get; set; }
         
