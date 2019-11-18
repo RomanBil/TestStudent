@@ -16,15 +16,22 @@ namespace Test_Designer
     {
         private List<Question> Questions = new List<Question>();
 
-        private List<CheckBox> comboBoxes = new List<CheckBox>();
+        ////private List<CheckBox> comboBoxes = new List<CheckBox>();
 
         private Point point = new Point(0, 0);
+
+      
+
 
         public Form1()
         {
             InitializeComponent();
 
-            test();
+            ////////test();
+
+            checkedListBox1.MultiColumn = false;
+            checkedListBox1.SelectionMode = SelectionMode.One;
+
         }
 
         private void test()
@@ -38,23 +45,27 @@ namespace Test_Designer
             panel1.Controls.Add(vScrollBar1);
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)  ///add question
         {
             Question question = new Question() { TextQuestion = textBoxQuestion.Text, Answers = new List<Answer>() };
 
-            if (comboBoxes.Count > 0)
+            if (checkedListBox1.Items.Count > 0)
             {
-                for (int i = 0; i < comboBoxes.Count; i++)
+                for (int i = 0; i < checkedListBox1.Items.Count; i++)
                 {
-                    if (comboBoxes[i].Checked == true)
-                    {
-                        question.Answers.Add(new Answer() { TextAnswer = comboBoxes[i].Text, Corect = true });
-                    }
+                    MessageBox.Show(checkedListBox1.SelectedValue.ToString());
 
-                    else
-                    {
-                        question.Answers.Add(new Answer() { TextAnswer = comboBoxes[i].Text, Corect = false });
-                    }
+
+
+                    //if (checkedListBox1.Items[i] == true)
+                    //{
+                    //    question.Answers.Add(new Answer() { TextAnswer = comboBoxes[i].Text, Corect = true });
+                    //}
+
+                    //else
+                    //{
+                    //    question.Answers.Add(new Answer() { TextAnswer = comboBoxes[i].Text, Corect = false });
+                    //}
                 }
             }
 
@@ -65,28 +76,15 @@ namespace Test_Designer
             panel1.Controls.Clear();
         }
 
-        private void buttonShow_Click(object sender, EventArgs e)
+        private void buttonShow_Click(object sender, EventArgs e)    ///show answer
         {
-            panel1.Controls.Clear();
-
-            point = new Point(0, 0);
-
-            for (int i = 0; i < numericUpDown2.Value; i++)
+            if (textBox1.Text == string.Empty)
             {
-                CheckBox checkBox = new CheckBox();
-
-                checkBox.Location = point;
-
-                checkBox.Text = "text";
-
-                point.Y += 20;
-
-                panel1.Controls.Add(checkBox);
-
-                comboBoxes.Add(checkBox);
+                return;
             }
+            checkedListBox1.Items.Add(textBox1.Text, false);
+            textBox1.Text = string.Empty;
 
-            test();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
