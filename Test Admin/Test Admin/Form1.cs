@@ -16,5 +16,26 @@ namespace Test_Admin
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Hide();
+
+            if (true)
+            {
+                Admin admin = new Admin();
+
+                admin.ShowDialog();
+            }
+
+            else
+            {
+                Teacher teacher = new Teacher();
+
+                teacher.ShowDialog();
+            }
+
+            Close();
+        }
     }
 }
