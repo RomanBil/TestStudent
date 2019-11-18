@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Designer", "Test Designer\Test Designer.csproj", "{DF0EC6E3-F805-4B2A-81B3-21E82512AF87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF0EC6E3-F805-4B2A-81B3-21E82512AF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF0EC6E3-F805-4B2A-81B3-21E82512AF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF0EC6E3-F805-4B2A-81B3-21E82512AF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF0EC6E3-F805-4B2A-81B3-21E82512AF87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B3FAE8D-92D2-4CF2-959B-C6D6E132F4E2}
+	EndGlobalSection
+EndGlobal
