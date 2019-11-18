@@ -33,28 +33,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.textBoxSubject = new System.Windows.Forms.TextBox();
+            this.textBoxTheme = new System.Windows.Forms.TextBox();
+            this.textBoxQuestion = new System.Windows.Forms.TextBox();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonShow = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Question = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -63,7 +64,6 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // numericUpDown2
@@ -103,57 +103,58 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Question";
             // 
-            // textBox1
+            // textBoxSubject
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(197, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxSubject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxSubject.Location = new System.Drawing.Point(197, 3);
+            this.textBoxSubject.Name = "textBoxSubject";
+            this.textBoxSubject.Size = new System.Drawing.Size(188, 20);
+            this.textBoxSubject.TabIndex = 5;
             // 
-            // textBox2
+            // textBoxTheme
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(197, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBoxTheme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxTheme.Location = new System.Drawing.Point(197, 3);
+            this.textBoxTheme.Name = "textBoxTheme";
+            this.textBoxTheme.Size = new System.Drawing.Size(188, 20);
+            this.textBoxTheme.TabIndex = 6;
             // 
-            // textBox3
+            // textBoxQuestion
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(197, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(188, 20);
-            this.textBox3.TabIndex = 7;
+            this.textBoxQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxQuestion.Location = new System.Drawing.Point(197, 3);
+            this.textBoxQuestion.Name = "textBoxQuestion";
+            this.textBoxQuestion.Size = new System.Drawing.Size(188, 20);
+            this.textBoxQuestion.TabIndex = 7;
             // 
-            // button1
+            // buttonUpdate
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Update Question";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Location = new System.Drawing.Point(3, 3);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(105, 23);
+            this.buttonUpdate.TabIndex = 8;
+            this.buttonUpdate.Text = "Update Question";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonAdd
             // 
-            this.button2.Location = new System.Drawing.Point(197, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Add Question";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonAdd.Location = new System.Drawing.Point(197, 3);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(99, 23);
+            this.buttonAdd.TabIndex = 9;
+            this.buttonAdd.Text = "Add Question";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // button3
+            // buttonShow
             // 
-            this.button3.Location = new System.Drawing.Point(197, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Show answer";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonShow.Location = new System.Drawing.Point(197, 3);
+            this.buttonShow.Name = "buttonShow";
+            this.buttonShow.Size = new System.Drawing.Size(99, 23);
+            this.buttonShow.TabIndex = 10;
+            this.buttonShow.Text = "Show answer";
+            this.buttonShow.UseVisualStyleBackColor = true;
+            this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
             // listView1
             // 
@@ -172,6 +173,26 @@
             // 
             this.Question.Text = "Question";
             this.Question.Width = 69;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 48);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // tableLayoutPanel1
             // 
@@ -196,7 +217,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.button4, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.buttonSave, 0, 4);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -215,7 +236,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxSubject, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -230,7 +251,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.textBox2, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.textBoxTheme, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 53);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -245,7 +266,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.textBox3, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.textBoxQuestion, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 103);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -253,6 +274,16 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(388, 44);
             this.tableLayoutPanel5.TabIndex = 14;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSave.Location = new System.Drawing.Point(3, 397);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(388, 44);
+            this.buttonSave.TabIndex = 15;
+            this.buttonSave.Text = "Save test";
+            this.buttonSave.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel6
             // 
@@ -277,8 +308,8 @@
             this.tableLayoutPanel7.ColumnCount = 2;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.buttonUpdate, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.buttonAdd, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 347);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -293,7 +324,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Controls.Add(this.numericUpDown2, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.button3, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.buttonShow, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -311,36 +342,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(3, 397);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(388, 44);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "Save test";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateToolStripMenuItem,
-            this.deleteToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 48);
-            // 
-            // updateToolStripMenuItem
-            // 
-            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.updateToolStripMenuItem.Text = "Update";
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,6 +351,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -361,7 +363,6 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -372,12 +373,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBoxSubject;
+        private System.Windows.Forms.TextBox textBoxTheme;
+        private System.Windows.Forms.TextBox textBoxQuestion;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonShow;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader Question;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -389,7 +390,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
