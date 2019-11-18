@@ -39,7 +39,7 @@
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonShow = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewQuestion = new System.Windows.Forms.ListView();
             this.Question = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -156,18 +156,18 @@
             this.buttonShow.UseVisualStyleBackColor = true;
             this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
-            // listView1
+            // listViewQuestion
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewQuestion.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Question});
-            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Location = new System.Drawing.Point(3, 153);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(388, 238);
-            this.listView1.TabIndex = 11;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listViewQuestion.ContextMenuStrip = this.contextMenuStrip1;
+            this.listViewQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewQuestion.Location = new System.Drawing.Point(3, 153);
+            this.listViewQuestion.Name = "listViewQuestion";
+            this.listViewQuestion.Size = new System.Drawing.Size(388, 238);
+            this.listViewQuestion.TabIndex = 11;
+            this.listViewQuestion.UseCompatibleStateImageBehavior = false;
+            this.listViewQuestion.View = System.Windows.Forms.View.Details;
             // 
             // Question
             // 
@@ -213,7 +213,7 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.listView1, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.listViewQuestion, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 2);
@@ -379,7 +379,7 @@
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonShow;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewQuestion;
         private System.Windows.Forms.ColumnHeader Question;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

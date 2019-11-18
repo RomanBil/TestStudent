@@ -42,6 +42,8 @@ namespace Test_Designer
             }
 
             Questions.Add(question);
+
+            listViewQuestion.Items.Add(question.ToString());
         }
 
         private void buttonShow_Click(object sender, EventArgs e)

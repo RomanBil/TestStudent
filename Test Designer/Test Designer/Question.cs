@@ -11,5 +11,10 @@ namespace Test_Designer
         public string TextQuestion { get; set; }
         
         public List<Answer> Answers { get; set; }
+
+        public override string ToString()
+        {
+            return TextQuestion;
+        }
     }
 }
