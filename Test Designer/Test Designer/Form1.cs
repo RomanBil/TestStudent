@@ -18,24 +18,23 @@ namespace Test_Designer
 
         private List<CheckBox> comboBoxes = new List<CheckBox>();
 
-        private Point point = new Point(0, 0);
+        private List<TextBox> textBoxes = new List<TextBox>();
+
+        private Point point = new Point(0, 30);
 
         public Form1()
         {
             InitializeComponent();
 
-            test();
-        }
+            panel1.AutoScroll = false;
 
-        private void test()
-        {
-            ScrollBar vScrollBar1 = new VScrollBar();
+            panel1.HorizontalScroll.Enabled = false;
 
-            vScrollBar1.Dock = DockStyle.Right;
+            panel1.HorizontalScroll.Visible = false;
 
-            vScrollBar1.Scroll += (sender, e) => { panel1.VerticalScroll.Value = vScrollBar1.Value; };
-            
-            panel1.Controls.Add(vScrollBar1);
+            panel1.HorizontalScroll.Maximum = 0;
+
+            panel1.AutoScroll = true;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -48,12 +47,12 @@ namespace Test_Designer
                 {
                     if (comboBoxes[i].Checked == true)
                     {
-                        question.Answers.Add(new Answer() { TextAnswer = comboBoxes[i].Text, Corect = true });
+                        question.Answers.Add(new Answer() { TextAnswer = textBoxes[i].Text, Corect = true });
                     }
 
                     else
                     {
-                        question.Answers.Add(new Answer() { TextAnswer = comboBoxes[i].Text, Corect = false });
+                        question.Answers.Add(new Answer() { TextAnswer = textBoxes[i].Text, Corect = false });
                     }
                 }
             }
@@ -67,6 +66,8 @@ namespace Test_Designer
 
         private void buttonShow_Click(object sender, EventArgs e)
         {
+            int name = 0;
+
             panel1.Controls.Clear();
 
             point = new Point(0, 0);
@@ -77,16 +78,36 @@ namespace Test_Designer
 
                 checkBox.Location = point;
 
-                checkBox.Text = "text";
+                checkBox.Name = name.ToString();
+
+                checkBox.Width = 30;
+
+                TextBox textBox = new TextBox();
+
+                point.X = 40;
+
+                textBox.Location = point;
+
+                point.X = 0;
+
+                textBox.Name = name.ToString();
+
+                textBox.Text = "text";
+
+                textBox.Visible = true;
 
                 point.Y += 20;
 
                 panel1.Controls.Add(checkBox);
 
-                comboBoxes.Add(checkBox);
-            }
+                panel1.Controls.Add(textBox);
 
-            test();
+                comboBoxes.Add(checkBox);
+
+                textBoxes.Add(textBox);
+
+                name++;
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
