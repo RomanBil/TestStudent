@@ -17,7 +17,6 @@ namespace Test_Admin
     {
         string path;
 
-
         public Teacher()
         {
             InitializeComponent();
