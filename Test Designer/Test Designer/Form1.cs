@@ -22,6 +22,31 @@ namespace Test_Designer
 
         private Point point = new Point(0, 30);
 
+        private bool CheckingNumberCorrectAnswers()
+        {
+            if (numericUpDown2.Value == 0) 
+            {
+                return true;
+            }
+
+            int countOfCheckBoxChecked = 0;
+            for (int i = 0; i < comboBoxes.Count; i++)
+            {
+                if (comboBoxes[i].Checked == true)
+                {
+                    countOfCheckBoxChecked++;
+                }
+            }
+            if (countOfCheckBoxChecked == textBoxes.Count)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
+
         public Form1()
         {
             InitializeComponent();
@@ -39,6 +64,13 @@ namespace Test_Designer
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            if (CheckingNumberCorrectAnswers())
+            {
+                return;
+            }
+           
+            ////MessageBox.Show("dalshe");
+
             Question question = new Question() { TextQuestion = textBoxQuestion.Text, Answers = new List<Answer>() };
 
             if (comboBoxes.Count > 0)
@@ -64,6 +96,10 @@ namespace Test_Designer
             panel1.Controls.Clear();
 
             numericUpDown2.Value = 0;
+
+
+
+
         }
 
         private void buttonShow_Click(object sender, EventArgs e)
@@ -134,5 +170,27 @@ namespace Test_Designer
 
             stream.Close();
         }
+
+        private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+
+
+            numericUpDown2.Value = 0;
+
+            for (int i = 0; i < comboBoxes.Count; i++)
+            {
+                comboBoxes[i].Checked = false;
+            }
+
+            for (int i = 0; i < comboBoxes.Count; i++)
+            {
+                //textBoxes[i].ToString() = "text";
+            }
+
+
+        }
+
+
+
     }
 }
