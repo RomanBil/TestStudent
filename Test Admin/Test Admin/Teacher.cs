@@ -15,6 +15,7 @@ namespace Test_Admin
         public Teacher()
         {
             InitializeComponent();
+
         }
     }
 }
