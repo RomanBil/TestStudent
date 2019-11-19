@@ -31,23 +31,23 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ViewResult = new System.Windows.Forms.TabPage();
             this.AddTest = new System.Windows.Forms.TabPage();
-            this.listView4 = new System.Windows.Forms.ListView();
-            this.groupName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelGroup = new System.Windows.Forms.Label();
-            this.listView5 = new System.Windows.Forms.ListView();
-            this.test = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label4 = new System.Windows.Forms.Label();
-            this.labelTest = new System.Windows.Forms.Label();
-            this.buttonAddTtoG = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.listView6 = new System.Windows.Forms.ListView();
             this.testGroup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button8 = new System.Windows.Forms.Button();
+            this.buttonAddTtoG = new System.Windows.Forms.Button();
+            this.labelTest = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listView5 = new System.Windows.Forms.ListView();
+            this.test = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelGroup = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.listView4 = new System.Windows.Forms.ListView();
+            this.groupName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DownloadTest = new System.Windows.Forms.TabPage();
-            this.buttonOpen = new System.Windows.Forms.Button();
-            this.buttonSend = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.labelPath = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonSend = new System.Windows.Forms.Button();
+            this.buttonOpen = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CreateGroup = new System.Windows.Forms.TabPage();
             this.AddTest.SuspendLayout();
@@ -86,83 +86,14 @@
             this.AddTest.Text = "Add test to group";
             this.AddTest.UseVisualStyleBackColor = true;
             // 
-            // listView4
+            // button8
             // 
-            this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.groupName});
-            this.listView4.HideSelection = false;
-            this.listView4.Location = new System.Drawing.Point(8, 38);
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(137, 268);
-            this.listView4.TabIndex = 0;
-            this.listView4.UseCompatibleStateImageBehavior = false;
-            this.listView4.View = System.Windows.Forms.View.Details;
-            // 
-            // groupName
-            // 
-            this.groupName.Text = "Group";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Name group:";
-            // 
-            // labelGroup
-            // 
-            this.labelGroup.AutoSize = true;
-            this.labelGroup.Location = new System.Drawing.Point(79, 13);
-            this.labelGroup.Name = "labelGroup";
-            this.labelGroup.Size = new System.Drawing.Size(35, 13);
-            this.labelGroup.TabIndex = 2;
-            this.labelGroup.Text = "label4";
-            // 
-            // listView5
-            // 
-            this.listView5.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.test});
-            this.listView5.HideSelection = false;
-            this.listView5.Location = new System.Drawing.Point(544, 54);
-            this.listView5.Name = "listView5";
-            this.listView5.Size = new System.Drawing.Size(139, 252);
-            this.listView5.TabIndex = 3;
-            this.listView5.UseCompatibleStateImageBehavior = false;
-            this.listView5.View = System.Windows.Forms.View.Details;
-            // 
-            // test
-            // 
-            this.test.Text = "Test";
-            this.test.Width = 58;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(544, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Test:";
-            // 
-            // labelTest
-            // 
-            this.labelTest.AutoSize = true;
-            this.labelTest.Location = new System.Drawing.Point(581, 13);
-            this.labelTest.Name = "labelTest";
-            this.labelTest.Size = new System.Drawing.Size(35, 13);
-            this.labelTest.TabIndex = 5;
-            this.labelTest.Text = "label5";
-            // 
-            // buttonAddTtoG
-            // 
-            this.buttonAddTtoG.Location = new System.Drawing.Point(493, 372);
-            this.buttonAddTtoG.Name = "buttonAddTtoG";
-            this.buttonAddTtoG.Size = new System.Drawing.Size(113, 23);
-            this.buttonAddTtoG.TabIndex = 6;
-            this.buttonAddTtoG.Text = "Add test to group";
-            this.buttonAddTtoG.UseVisualStyleBackColor = true;
+            this.button8.Location = new System.Drawing.Point(657, 372);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 8;
+            this.button8.Text = "Delete test";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // listView6
             // 
@@ -181,14 +112,83 @@
             this.testGroup.Text = "Tests in group";
             this.testGroup.Width = 96;
             // 
-            // button8
+            // buttonAddTtoG
             // 
-            this.button8.Location = new System.Drawing.Point(657, 372);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "Delete test";
-            this.button8.UseVisualStyleBackColor = true;
+            this.buttonAddTtoG.Location = new System.Drawing.Point(493, 372);
+            this.buttonAddTtoG.Name = "buttonAddTtoG";
+            this.buttonAddTtoG.Size = new System.Drawing.Size(113, 23);
+            this.buttonAddTtoG.TabIndex = 6;
+            this.buttonAddTtoG.Text = "Add test to group";
+            this.buttonAddTtoG.UseVisualStyleBackColor = true;
+            // 
+            // labelTest
+            // 
+            this.labelTest.AutoSize = true;
+            this.labelTest.Location = new System.Drawing.Point(581, 13);
+            this.labelTest.Name = "labelTest";
+            this.labelTest.Size = new System.Drawing.Size(35, 13);
+            this.labelTest.TabIndex = 5;
+            this.labelTest.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(544, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Test:";
+            // 
+            // listView5
+            // 
+            this.listView5.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.test});
+            this.listView5.HideSelection = false;
+            this.listView5.Location = new System.Drawing.Point(544, 54);
+            this.listView5.Name = "listView5";
+            this.listView5.Size = new System.Drawing.Size(139, 252);
+            this.listView5.TabIndex = 3;
+            this.listView5.UseCompatibleStateImageBehavior = false;
+            this.listView5.View = System.Windows.Forms.View.Details;
+            // 
+            // test
+            // 
+            this.test.Text = "Test";
+            this.test.Width = 58;
+            // 
+            // labelGroup
+            // 
+            this.labelGroup.AutoSize = true;
+            this.labelGroup.Location = new System.Drawing.Point(79, 13);
+            this.labelGroup.Name = "labelGroup";
+            this.labelGroup.Size = new System.Drawing.Size(35, 13);
+            this.labelGroup.TabIndex = 2;
+            this.labelGroup.Text = "label4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Name group:";
+            // 
+            // listView4
+            // 
+            this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.groupName});
+            this.listView4.HideSelection = false;
+            this.listView4.Location = new System.Drawing.Point(8, 38);
+            this.listView4.Name = "listView4";
+            this.listView4.Size = new System.Drawing.Size(137, 268);
+            this.listView4.TabIndex = 0;
+            this.listView4.UseCompatibleStateImageBehavior = false;
+            this.listView4.View = System.Windows.Forms.View.Details;
+            // 
+            // groupName
+            // 
+            this.groupName.Text = "Group";
             // 
             // DownloadTest
             // 
@@ -204,14 +204,23 @@
             this.DownloadTest.Text = "Download test";
             this.DownloadTest.UseVisualStyleBackColor = true;
             // 
-            // buttonOpen
+            // labelPath
             // 
-            this.buttonOpen.Location = new System.Drawing.Point(26, 313);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(75, 23);
-            this.buttonOpen.TabIndex = 0;
-            this.buttonOpen.Text = "Open test";
-            this.buttonOpen.UseVisualStyleBackColor = true;
+            this.labelPath.AutoSize = true;
+            this.labelPath.Location = new System.Drawing.Point(117, 223);
+            this.labelPath.Name = "labelPath";
+            this.labelPath.Size = new System.Drawing.Size(35, 13);
+            this.labelPath.TabIndex = 3;
+            this.labelPath.Text = "label1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 223);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "path  to test:";
             // 
             // buttonSend
             // 
@@ -223,23 +232,14 @@
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
-            // label1
+            // buttonOpen
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 223);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "path  to test:";
-            // 
-            // labelPath
-            // 
-            this.labelPath.AutoSize = true;
-            this.labelPath.Location = new System.Drawing.Point(117, 223);
-            this.labelPath.Name = "labelPath";
-            this.labelPath.Size = new System.Drawing.Size(35, 13);
-            this.labelPath.TabIndex = 3;
-            this.labelPath.Text = "label1";
+            this.buttonOpen.Location = new System.Drawing.Point(26, 313);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(75, 23);
+            this.buttonOpen.TabIndex = 0;
+            this.buttonOpen.Text = "Open test";
+            this.buttonOpen.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
