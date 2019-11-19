@@ -1,6 +1,6 @@
 ﻿namespace Test_Client
 {
-    partial class Test
+    partial class TestForm
     {
         /// <summary>
         /// Required designer variable.
@@ -79,6 +79,7 @@
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Location = new System.Drawing.Point(63, 3);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(322, 20);
             this.textBox1.TabIndex = 2;
             // 
@@ -111,6 +112,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "End test";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -188,13 +190,13 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(388, 34);
             this.tableLayoutPanel5.TabIndex = 6;
             // 
-            // Test
+            // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Test";
+            this.Name = "TestForm";
             this.Text = "Test";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
