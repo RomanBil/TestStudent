@@ -26,6 +26,7 @@ namespace Test_Designer
         {
             InitializeComponent();
 
+
             panel1.AutoScroll = false;
 
             panel1.HorizontalScroll.Enabled = false;
