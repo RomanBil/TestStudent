@@ -62,6 +62,8 @@ namespace Test_Designer
             listViewQuestion.Items.Add(question.ToString());
 
             panel1.Controls.Clear();
+
+            numericUpDown2.Value = 0;
         }
 
         private void buttonShow_Click(object sender, EventArgs e)
