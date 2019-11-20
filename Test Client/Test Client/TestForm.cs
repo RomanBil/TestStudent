@@ -22,15 +22,71 @@ namespace Test_Client
 
         TestResult test = null;
 
-        public TestForm(TestResult tr)
+        private Point point = new Point(0, 0);
+
+        private List<CheckBox> checkBoxes = new List<CheckBox>();
+
+        public TestForm(TestResult tr, string NameStudent)
         {
             InitializeComponent();
+
+            test.NameStudent = NameStudent;
 
             test = tr;
 
             for (int i = 0; i < test.Questions.Count(); i++)
             {
                 listView1.Items.Add(test.Questions[i].ToString());
+            }
+
+            listView1.FocusedItem = listView1.Items[0];
+
+            Func();
+        }
+
+        private void Func()
+        {
+            checkBoxes.Clear();
+
+            panel1.Controls.Clear();
+
+            point = new Point(0, 0);
+
+            for (int i = 0; i < (listView1.FocusedItem as QuestionResult).Answers.Count; i++)
+            {
+                int name = 0;
+
+                CheckBox checkBox = new CheckBox();
+
+                checkBox.Location = point;
+
+                checkBox.Name = name.ToString();
+
+                checkBox.Text = (listView1.FocusedItem as QuestionResult).Answers[i].TextAnswer;
+
+                point.Y += 20;
+
+                name++;
+
+                panel1.Controls.Add(checkBox);
+
+                checkBoxes.Add(checkBox);
+            }
+        }
+
+        private void SaveAnswers()
+        {
+            for (int i = 0; i < test.Questions[listView1.FocusedItem.Index].Answers.Count(); i++)
+            {
+                if (checkBoxes[i].Checked == true)
+                {
+                    test.Questions[listView1.FocusedItem.Index].Answers[i].StudentCheck = true;
+                }
+
+                else
+                {
+                    test.Questions[listView1.FocusedItem.Index].Answers[i].StudentCheck = false;
+                }
             }
         }
 
@@ -53,6 +109,24 @@ namespace Test_Client
             TestResultForm trf = new TestResultForm();
 
             trf.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveAnswers();
+
+            Func();
+
+            listView1.FocusedItem = listView1.Items[listView1.FocusedItem.Index + 1];
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listView1.FocusedItem = listView1.Items[listView1.FocusedItem.Index - 1];
+
+            Func();
+
+            SaveAnswers();
         }
     }
 }
