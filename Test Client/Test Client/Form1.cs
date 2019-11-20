@@ -18,7 +18,7 @@ namespace Test_Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ListTest listTest = new ListTest();
+            ListTest listTest = new ListTest(textBox3.Text);
 
             Hide();
 

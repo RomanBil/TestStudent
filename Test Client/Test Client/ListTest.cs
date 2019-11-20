@@ -23,9 +23,11 @@ namespace Test_Client
 
         UdpClient client = new UdpClient();
 
+        private List<TestResult> Tests = new List<TestResult>();
+
         //IPAddress addressServer = IPAddress.Parse("192.168.28.2");
 
-
+        IPAddress addressServer = null;
 
         ///IPHostEntry ipEntry = Dns.GetHostEntry("localhost");
 
@@ -36,9 +38,11 @@ namespace Test_Client
 
 
 
-        public ListTest()
+        public ListTest(string ip)
         {
             InitializeComponent();
+
+            addressServer = IPAddress.Parse(ip);
 
             //clientReceive = new UdpClient(new IPEndPoint(addressServer, 47000)); 
 
@@ -49,14 +53,18 @@ namespace Test_Client
             //IPAddress iPAddress = iPHost.AddressList[1];
 
 
-            IPHostEntry iPHost = Dns.GetHostEntry(Dns.GetHostName());
+            //IPHostEntry iPHost = Dns.GetHostEntry(Dns.GetHostName());
             ///MessageBox.Show(iPHost.AddressList[1].ToString());
-            IPAddress iPAddress = iPHost.AddressList[1];
+            //IPAddress iPAddress = iPHost.AddressList[1];
 
 
 
 
-            StudentIp studentIp = new StudentIp() { LoginStudent = "123", iPAddressStudent = iPAddress };
+            StudentIp studentIp = new StudentIp()
+            {
+                LoginStudent = "123",
+                iPAddressStudent = Dns.Resolve(SystemInformation.ComputerName).AddressList[0]
+            };
 
           
 
@@ -70,6 +78,9 @@ namespace Test_Client
             receiveThread.Start(client);
 
             IPAddress ipAddr = IPAddress.Parse("192.168.28.2");
+
+            //IPAddress ipAddr = addressServer;
+
             clientReceive.Connect(ipAddr, 47001);
 
             MemoryStream memstream = new MemoryStream();
@@ -125,14 +136,21 @@ namespace Test_Client
 
                 listView1.Invoke(new Action(() => { listView1.Items.Add(testResult.ToString()); }));
 
+                Tests.Add(testResult);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TestForm test = new TestForm();
+            for (int i = 0; i < Tests.Count(); i++) 
+            {
+                if (Tests[i].ToString() == listView1.SelectedItems[0].Text)
+                {
+                    TestForm test = new TestForm(Tests[i]);
 
-            test.ShowDialog();
+                    test.ShowDialog();
+                }
+            }
         }
     }
 }

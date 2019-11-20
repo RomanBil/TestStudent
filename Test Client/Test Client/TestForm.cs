@@ -20,16 +20,23 @@ namespace Test_Client
     {
         UdpClient clientSend = new UdpClient(/*new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47000)*/);
 
-        public TestForm()
+        TestResult test = null;
+
+        public TestForm(TestResult tr)
         {
             InitializeComponent();
+
+            test = tr;
+
+            for (int i = 0; i < test.Questions.Count(); i++)
+            {
+                listView1.Items.Add(test.Questions[i].ToString());
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             IPAddress addressServer = IPAddress.Parse("192.168.28.2");
-
-            TestResult test = new TestResult();
 
             clientSend.Connect(addressServer, 47001);
 
