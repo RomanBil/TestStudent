@@ -22,9 +22,9 @@ namespace Test_Admin
     {
         string path;
 
-        UdpClient clientSend = new UdpClient(new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47000));
+        UdpClient clientSend = new UdpClient(/*new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47000)*/);
 
-        UdpClient clientReceive = new UdpClient(new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47001));
+        UdpClient clientReceive = new UdpClient(/*new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47001)*/);
 
         List<StudentIp> students = new List<StudentIp>();
         
@@ -42,11 +42,14 @@ namespace Test_Admin
 
             receiveThread.Start(clientReceive);
 
-            Thread readThread = new Thread(ReadResult);
+            //Thread readThread = new Thread(ReadResult);
 
-            readThread.IsBackground = true;
+            //readThread.IsBackground = true;
 
-           // readThread.Start(clientReceive);
+            //readThread.Start(clientReceive);
+
+
+
 
             //FileStream file = File.Open(@"C: \Users\s30 - r1\Source\Repos\TestStudent2\Test Admin\Test Admin\Tests\", FileMode.Open);
 
@@ -56,46 +59,46 @@ namespace Test_Admin
             //}
         }
 
-        private void ReadResult(Object obj)
-        {
-            UdpClient client = obj as UdpClient;
+        //private void ReadResult(Object obj)
+        //{
+        //    UdpClient client = obj as UdpClient;
 
-            if (client == null)
-            {
-                throw new ArgumentException("Error");
-            }
+        //    if (client == null)
+        //    {
+        //        throw new ArgumentException("Error");
+        //    }
 
-            while (true)
-            {
-                IPEndPoint endPoint = null; //new IPEndPoint(IPAddress.Any, 47002);
+        //    while (true)
+        //    {
+        //        IPEndPoint endPoint = null; //new IPEndPoint(IPAddress.Any, 47002);
 
-                byte[] data = client.Receive(ref endPoint);
+        //        byte[] data = client.Receive(ref endPoint);
 
-                BinaryFormatter bf = new BinaryFormatter();
+        //        BinaryFormatter bf = new BinaryFormatter();
 
-                MemoryStream memstream = new MemoryStream(data);
+        //        MemoryStream memstream = new MemoryStream(data);
 
-                TestResult res = (TestResult)bf.Deserialize(memstream);
+        //        TestResult res = (TestResult)bf.Deserialize(memstream);
 
-                memstream.Dispose();
+        //        memstream.Dispose();
 
-                for (int i = 0; i < students.Count(); i++)
-                {
-                    if (students[i].LoginStudent == res.NameStudent) 
-                    {
-                        clientSend.Connect(students[i].iPAddressStudent, 47002);
+        //        for (int i = 0; i < students.Count(); i++)
+        //        {
+        //            if (students[i].LoginStudent == res.NameStudent) 
+        //            {
+        //                clientSend.Connect(students[i].iPAddressStudent, 47002);
 
-                        MemoryStream memstream1 = new MemoryStream();
+        //                MemoryStream memstream1 = new MemoryStream();
 
-                        bf.Serialize(memstream1, res);
+        //                bf.Serialize(memstream1, res);
 
-                        clientSend.Send(memstream1.ToArray(), (int)memstream1.Length);
+        //                clientSend.Send(memstream1.ToArray(), (int)memstream1.Length);
 
-                        memstream1.Dispose();
-                    }
-                }
-            }
-        }
+        //                memstream1.Dispose();
+        //            }
+        //        }
+        //    }
+        //}
 
         private void MyThread(Object obj)
         {
@@ -116,13 +119,41 @@ namespace Test_Admin
 
                 MemoryStream memstream = new MemoryStream(data);
 
-                students.Add((StudentIp)bf.Deserialize(memstream));
+                try
+                {
+                    students.Add((StudentIp)bf.Deserialize(memstream));
 
-                memstream.Dispose();
+                    memstream.Dispose();
 
-                //listView4.Items.Add(students[students.Count - 1].LoginStudent);//add invoke
+                    listView4.Invoke(new Action(() => { listView4.Items.Add(students[students.Count - 1].LoginStudent); }));
+                }
 
-                listView4.Invoke(new Action(() => { listView4.Items.Add(students[students.Count - 1].LoginStudent); }));
+                catch (Exception)//no Exception
+                {
+                    TestResult res = (TestResult)bf.Deserialize(memstream);
+
+                    memstream.Dispose();
+
+                    //обробка res
+
+                    Thread.Sleep(3000);
+
+                    for (int i = 0; i < students.Count(); i++)
+                    {
+                        if (students[i].LoginStudent == res.NameStudent)
+                        {
+                            clientSend.Connect(students[i].iPAddressStudent, 47000);
+
+                            MemoryStream memstream1 = new MemoryStream();
+
+                            bf.Serialize(memstream1, res);
+
+                            clientSend.Send(memstream1.ToArray(), (int)memstream1.Length);
+
+                            memstream1.Dispose();
+                        }
+                    }
+                }
             }
         }
 
@@ -151,7 +182,7 @@ namespace Test_Admin
                 {
                     TestResult test = TestResult.ToTestResult(new Test() { Name = "asdasfasdf" });
 
-                    clientSend.Connect(students[i].iPAddressStudent, 47001);
+                    clientSend.Connect(students[i].iPAddressStudent, 47000);
 
                     MemoryStream memstream = new MemoryStream();
 

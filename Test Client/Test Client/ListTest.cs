@@ -12,10 +12,8 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-//using TestNamespace;
 using TestStudent;
 using TestNamespace;
-using System.Net.Http;
 
 namespace Test_Client
 {
@@ -23,10 +21,10 @@ namespace Test_Client
     {
         UdpClient clientReceive = new UdpClient();
 
-        
-        //IPAddress addressServer = IPAddress.Parse("ip adres");
-        IPAddress addressServer = IPAddress.Parse("192.168.28.2");
-        
+        UdpClient client = new UdpClient();
+
+        //IPAddress addressServer = IPAddress.Parse("192.168.28.2");
+
 
 
         ///IPHostEntry ipEntry = Dns.GetHostEntry("localhost");
@@ -67,9 +65,9 @@ namespace Test_Client
             panel1.HorizontalScroll.Visible = false;
             panel1.HorizontalScroll.Maximum = 0;
             panel1.AutoScroll = true;
-            //Thread receiveThread = new Thread(MyThread);
-            //receiveThread.IsBackground = true;
-            //receiveThread.Start(clientReceive);
+            Thread receiveThread = new Thread(MyThread);
+            receiveThread.IsBackground = true;
+            receiveThread.Start(client);
 
             IPAddress ipAddr = IPAddress.Parse("192.168.28.2");
             clientReceive.Connect(ipAddr, 47001);
@@ -113,7 +111,7 @@ namespace Test_Client
 
             while (true)
             {
-                IPEndPoint endPoint = new IPEndPoint(addressServer, 47001);
+                IPEndPoint endPoint = null;//new IPEndPoint(addressServer, 47000);
 
                 byte[] data = client.Receive(ref endPoint);
 
@@ -121,19 +119,11 @@ namespace Test_Client
 
                 MemoryStream memstream = new MemoryStream(data);
 
-                ///Test test = (Test)bf.Deserialize(memstream);
-
                 TestResult testResult = (TestResult)bf.Deserialize(memstream);
 
                 memstream.Dispose();
 
-                ////listView1.Items.Add(Test.ToString());
-
-                MessageBox.Show(testResult.ToString());
-
-                listView1.Items.Add(testResult.ToString());
-
-
+                listView1.Invoke(new Action(() => { listView1.Items.Add(testResult.ToString()); }));
 
             }
         }
