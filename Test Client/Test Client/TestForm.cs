@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestNamespace;
+using TestStudent;
 
 namespace Test_Client
 {

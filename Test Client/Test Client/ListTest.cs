@@ -12,35 +12,94 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+//using TestNamespace;
+using TestStudent;
 using TestNamespace;
+using System.Net.Http;
 
 namespace Test_Client
 {
     public partial class ListTest : Form
     {
-        UdpClient clientReceive = new UdpClient(new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47000));
+        UdpClient clientReceive = new UdpClient();
 
-        IPAddress addressServer = IPAddress.Parse("ip adres");
+        
+        //IPAddress addressServer = IPAddress.Parse("ip adres");
+        IPAddress addressServer = IPAddress.Parse("192.168.28.2");
+        
+
+
+        ///IPHostEntry ipEntry = Dns.GetHostEntry("localhost");
+
+        ////IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
+        ////IPAddress iPAddress = ipHost.AddressList[1];
+
+
+
+
 
         public ListTest()
         {
             InitializeComponent();
 
+            //clientReceive = new UdpClient(new IPEndPoint(addressServer, 47000)); 
+
+
+            ///MessageBox.Show(Dns.Resolve(SystemInformation.ComputerName).AddressList[0].ToString());
+
+            //IPHostEntry iPHost = Dns.Resolve("localhost");
+            //IPAddress iPAddress = iPHost.AddressList[1];
+
+
+            IPHostEntry iPHost = Dns.GetHostEntry(Dns.GetHostName());
+            ///MessageBox.Show(iPHost.AddressList[1].ToString());
+            IPAddress iPAddress = iPHost.AddressList[1];
+
+
+
+
+            StudentIp studentIp = new StudentIp() { LoginStudent = "123", iPAddressStudent = iPAddress };
+
+          
+
             panel1.AutoScroll = false;
-
             panel1.HorizontalScroll.Enabled = false;
-
             panel1.HorizontalScroll.Visible = false;
-
             panel1.HorizontalScroll.Maximum = 0;
-
             panel1.AutoScroll = true;
+            //Thread receiveThread = new Thread(MyThread);
+            //receiveThread.IsBackground = true;
+            //receiveThread.Start(clientReceive);
 
-            Thread receiveThread = new Thread(MyThread);
+            IPAddress ipAddr = IPAddress.Parse("192.168.28.2");
+            clientReceive.Connect(ipAddr, 47001);
 
-            receiveThread.IsBackground = true;
+            MemoryStream memstream = new MemoryStream();
 
-            receiveThread.Start(clientReceive);
+            BinaryFormatter bf = new BinaryFormatter();
+
+            ////bf.Serialize(memstream, test);
+            bf.Serialize(memstream, studentIp);
+
+            clientReceive.Send(memstream.ToArray(), (int)memstream.Length);
+
+            memstream.Dispose();
+            
+          
+           
+           /* IPAddress ipAddr = IPAddress.Parse("192.168.28.2");
+            // Создаем UdpClient
+            UdpClient udpClient = new UdpClient();
+
+            // Соединяемся с удаленным хостом
+            udpClient.Connect(ipAddr, 47001);
+
+            // Отправка простого сообщения
+            byte[] bytes = Encoding.UTF8.GetBytes("Test");
+            udpClient.Send(bytes, bytes.Length);
+            */
+
+
         }
 
         private void MyThread(Object obj)
@@ -62,11 +121,20 @@ namespace Test_Client
 
                 MemoryStream memstream = new MemoryStream(data);
 
-                Test test = (Test)bf.Deserialize(memstream);
+                ///Test test = (Test)bf.Deserialize(memstream);
+
+                TestResult testResult = (TestResult)bf.Deserialize(memstream);
 
                 memstream.Dispose();
 
-                listView1.Items.Add(Test.ToString());
+                ////listView1.Items.Add(Test.ToString());
+
+                MessageBox.Show(testResult.ToString());
+
+                listView1.Items.Add(testResult.ToString());
+
+
+
             }
         }
 

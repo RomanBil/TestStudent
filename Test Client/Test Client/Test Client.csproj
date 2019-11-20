@@ -47,6 +47,9 @@
     <Reference Include="Test">
       <HintPath>..\..\Test Admin\Test\bin\Debug\Test.dll</HintPath>
     </Reference>
+    <Reference Include="TestStudent">
+      <HintPath>..\..\Test Admin\Test\bin\Debug\TestStudent.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
