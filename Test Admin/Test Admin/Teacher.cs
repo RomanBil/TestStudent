@@ -31,7 +31,9 @@ namespace Test_Admin
         public Teacher()
         {
             InitializeComponent();
-            
+
+            Text += "your IP address "+ Dns.Resolve(SystemInformation.ComputerName).AddressList[0].ToString();
+
             //IPHostEntry iPHostEntry= Dns.GetHostEntry(Dns.GetHostName());
 
             //MessageBox.Show(iPHostEntry.AddressList[1].ToString());
