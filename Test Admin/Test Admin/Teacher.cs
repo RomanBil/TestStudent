@@ -27,11 +27,11 @@ namespace Test_Admin
         UdpClient clientReceive = new UdpClient(new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47001));
 
         List<StudentIp> students = new List<StudentIp>();
-
+        
         public Teacher()
         {
             InitializeComponent();
-
+            
             //IPHostEntry iPHostEntry= Dns.GetHostEntry(Dns.GetHostName());
 
             //MessageBox.Show(iPHostEntry.AddressList[1].ToString());
