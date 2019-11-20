@@ -18,9 +18,7 @@ namespace Test_Client
 {
     public partial class TestForm : Form
     {
-        private IPAddress addressServer = IPAddress.Parse("ip adres");
-
-        UdpClient clientSend = new UdpClient(new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47000));
+        UdpClient clientSend = new UdpClient(/*new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47000)*/);
 
         public TestForm()
         {
@@ -29,9 +27,11 @@ namespace Test_Client
 
         private void button3_Click(object sender, EventArgs e)
         {
+            IPAddress addressServer = IPAddress.Parse("192.168.28.2");
+
             TestResult test = new TestResult();
 
-            clientSend.Connect(addressServer, 47002);
+            clientSend.Connect(addressServer, 47001);
 
             MemoryStream memstream = new MemoryStream();
 
@@ -45,7 +45,7 @@ namespace Test_Client
 
             TestResultForm trf = new TestResultForm();
 
-            trf.Show();
+            trf.ShowDialog();
         }
     }
 }

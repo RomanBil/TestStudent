@@ -18,7 +18,7 @@ namespace Test_Client
 {
     public partial class TestResultForm : Form
     {
-        UdpClient clientReceive = new UdpClient(new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47001));
+        UdpClient clientReceive = new UdpClient(/*new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47001)*/);
 
         public TestResultForm()
         {
@@ -42,7 +42,7 @@ namespace Test_Client
 
             while (true)
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 47002);
+                IPEndPoint endPoint = null; //new IPEndPoint(IPAddress.Any, 47002);
 
                 byte[] data = client.Receive(ref endPoint);
 
