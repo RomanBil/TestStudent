@@ -32,6 +32,10 @@ namespace Test_Admin
         {
             InitializeComponent();
 
+            //IPHostEntry iPHostEntry= Dns.GetHostEntry(Dns.GetHostName());
+
+            //MessageBox.Show(iPHostEntry.AddressList[1].ToString());
+
             Thread receiveThread = new Thread(MyThread);
 
             receiveThread.IsBackground = true;
@@ -42,7 +46,14 @@ namespace Test_Admin
 
             readThread.IsBackground = true;
 
-            readThread.Start(clientReceive);
+           // readThread.Start(clientReceive);
+
+            //FileStream file = File.Open(@"C: \Users\s30 - r1\Source\Repos\TestStudent2\Test Admin\Test Admin\Tests\", FileMode.Open);
+
+            //for (int i = 0; i < file.; i++)
+            //{
+                //listView6
+            //}
         }
 
         private void ReadResult(Object obj)
@@ -56,7 +67,7 @@ namespace Test_Admin
 
             while (true)
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 47002);
+                IPEndPoint endPoint = null; //new IPEndPoint(IPAddress.Any, 47002);
 
                 byte[] data = client.Receive(ref endPoint);
 
@@ -97,7 +108,7 @@ namespace Test_Admin
 
             while (true)
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 47000);
+                IPEndPoint endPoint = null;
 
                 byte[] data = client.Receive(ref endPoint);
 
@@ -108,12 +119,16 @@ namespace Test_Admin
                 students.Add((StudentIp)bf.Deserialize(memstream));
 
                 memstream.Dispose();
+
+                //listView4.Items.Add(students[students.Count - 1].LoginStudent);//add invoke
+
+                listView4.Invoke(new Action(() => { listView4.Items.Add(students[students.Count - 1].LoginStudent); }));
             }
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            FileStream read = File.OpenWrite(path);
+            FileStream read = File.OpenRead(path);
 
             XmlSerializer ser = new XmlSerializer(typeof(Test));
 
@@ -121,8 +136,10 @@ namespace Test_Admin
 
             read.Close();
 
-            FileStream write = File.OpenWrite(@"C:\Users\йййй\Source\Repos\TestStudent\Test Admin\Test Admin\Tests\");
+            string[] str = path.Split('\\');
 
+            FileStream write = File.Create(@"C:\Users\s30-r1\Source\Repos\TestStudent2\Test Admin\Test Admin\Tests\" + str[str.Length - 1]);
+            
             ser.Serialize(write, test);
         }
 
@@ -130,9 +147,9 @@ namespace Test_Admin
         {
             for (int i = 0; i < students.Count(); i++)
             {
-                if (students[i].LoginStudent == "login student from group")
+                //if (students[i].LoginStudent == "123")
                 {
-                    TestResult test = TestResult.ToTestResult(new Test());
+                    TestResult test = TestResult.ToTestResult(new Test() { Name = "asdasfasdf" });
 
                     clientSend.Connect(students[i].iPAddressStudent, 47001);
 
@@ -146,6 +163,14 @@ namespace Test_Admin
 
                     memstream.Dispose();
                 }
+            }
+        }
+
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                path = openFileDialog1.FileName;
             }
         }
     }

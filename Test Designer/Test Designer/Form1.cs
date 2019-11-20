@@ -113,7 +113,7 @@ namespace Test_Designer
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            FileStream stream = File.OpenWrite(@"C:\Users\йййй\Source\Repos\TestStudent\Test Designer\Test Designer\XMDocument\Tests.xml");
+            FileStream stream = File.OpenWrite(@"C:\Users\s30-r1\Source\Repos\TestStudent2\Test Designer\Test Designer\XMDocument\Tests.xml");
 
             XmlSerializer ser = new XmlSerializer(typeof(Test));
 
