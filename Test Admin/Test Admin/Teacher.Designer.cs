@@ -395,6 +395,7 @@
             this.buttonAddTtoG.TabIndex = 6;
             this.buttonAddTtoG.Text = "Add test to group";
             this.buttonAddTtoG.UseVisualStyleBackColor = true;
+            this.buttonAddTtoG.Click += new System.EventHandler(this.buttonAddTtoG_Click);
             // 
             // button8
             // 
@@ -622,6 +623,7 @@
             this.buttonOpen.TabIndex = 0;
             this.buttonOpen.Text = "Open test";
             this.buttonOpen.UseVisualStyleBackColor = true;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
             // tabControl1
             // 

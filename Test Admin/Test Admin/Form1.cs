@@ -23,16 +23,16 @@ namespace Test_Admin
 
             if (true)
             {
-                Admin admin = new Admin();
+                Teacher teacher = new Teacher();
 
-                admin.ShowDialog();
+                teacher.ShowDialog();
             }
 
             else
             {
-                Teacher teacher = new Teacher();
+                Admin admin = new Admin();
 
-                teacher.ShowDialog();
+                admin.ShowDialog();
             }
 
             Close();
