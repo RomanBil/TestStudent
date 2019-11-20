@@ -21,6 +21,10 @@ namespace Test_Admin
         {
             Hide();
 
+            ////111 парол+логін
+            ///2222 перевірка  ролі( вчитель-- адмін )
+
+
             if (true)
             {
                 Teacher teacher = new Teacher();
