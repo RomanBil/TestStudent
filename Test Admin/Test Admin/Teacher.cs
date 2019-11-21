@@ -140,6 +140,7 @@ namespace Test_Admin
                     TestResult test = new TestResult()
                     {
                         Name = "asdasfasdf",
+                        NameStudent = string.Empty,
                         Author = "I",
                         CreateDate = DateTime.Now,
                         Subject = "test",
@@ -147,6 +148,8 @@ namespace Test_Admin
                     };
 
                     test.Questions.Add(question);
+
+                    //TestResult test = TestResult.ToTestResult(Test t);
 
                     clientSend.Connect(students[i].iPAddressStudent, 47000);
 

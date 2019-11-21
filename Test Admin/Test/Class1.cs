@@ -25,7 +25,7 @@ namespace TestNamespace
 
             tr.Author = t.Author;
 
-            tr.NameStudent = null;
+            tr.NameStudent = string.Empty;
 
             tr.CreateDate = t.CreateDate;
 
