@@ -21,7 +21,7 @@ namespace Test_Client
     {
         UdpClient clientReceive = new UdpClient();
 
-        UdpClient client = new UdpClient();
+        UdpClient client = new UdpClient(new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47000));
 
         private List<TestResult> Tests = new List<TestResult>();
 
@@ -37,21 +37,29 @@ namespace Test_Client
 
 
 
+        StudentIp studentIp = new StudentIp()
+        {
+            LoginStudent = "123",
+            iPAddressStudent = Dns.Resolve(SystemInformation.ComputerName).AddressList[0]
+        };
+
+
 
         public ListTest(string ip)
         {
             InitializeComponent();
 
-            addressServer = IPAddress.Parse(ip);
+            addressServer = IPAddress.Parse("192.168.28.2");
+            ///addressServer = IPAddress.Parse(ip);
+
+
+
 
             //clientReceive = new UdpClient(new IPEndPoint(addressServer, 47000)); 
-
-
             ///MessageBox.Show(Dns.Resolve(SystemInformation.ComputerName).AddressList[0].ToString());
 
             //IPHostEntry iPHost = Dns.Resolve("localhost");
             //IPAddress iPAddress = iPHost.AddressList[1];
-
 
             //IPHostEntry iPHost = Dns.GetHostEntry(Dns.GetHostName());
             ///MessageBox.Show(iPHost.AddressList[1].ToString());
@@ -60,13 +68,8 @@ namespace Test_Client
 
 
 
-            StudentIp studentIp = new StudentIp()
-            {
-                LoginStudent = "123",
-                iPAddressStudent = Dns.Resolve(SystemInformation.ComputerName).AddressList[0]
-            };
 
-          
+
 
             panel1.AutoScroll = false;
             panel1.HorizontalScroll.Enabled = false;
@@ -146,7 +149,7 @@ namespace Test_Client
             {
                 if (Tests[i].ToString() == listView1.SelectedItems[0].Text)
                 {
-                    TestForm test = new TestForm(Tests[i]);
+                    TestForm test = new TestForm(Tests[i], studentIp.LoginStudent);
 
                     test.ShowDialog();
                 }

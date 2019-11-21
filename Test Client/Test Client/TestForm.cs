@@ -52,26 +52,26 @@ namespace Test_Client
 
             point = new Point(0, 0);
 
-            for (int i = 0; i < (listView1.FocusedItem as QuestionResult).Answers.Count; i++)
-            {
-                int name = 0;
+            ////for (int i = 0; i < (listView1.FocusedItem as QuestionResult).Answers.Count; i++)
+            ////{
+            ////    int name = 0;
 
-                CheckBox checkBox = new CheckBox();
+            ////    CheckBox checkBox = new CheckBox();
 
-                checkBox.Location = point;
+            ////    checkBox.Location = point;
 
-                checkBox.Name = name.ToString();
+            ////    checkBox.Name = name.ToString();
 
-                checkBox.Text = (listView1.FocusedItem as QuestionResult).Answers[i].TextAnswer;
+            ////    checkBox.Text = (listView1.FocusedItem as QuestionResult).Answers[i].TextAnswer;
 
-                point.Y += 20;
+            ////    point.Y += 20;
 
-                name++;
+            ////    name++;
 
-                panel1.Controls.Add(checkBox);
+            ////    panel1.Controls.Add(checkBox);
 
-                checkBoxes.Add(checkBox);
-            }
+            ////    checkBoxes.Add(checkBox);
+            ////}
         }
 
         private void SaveAnswers()
