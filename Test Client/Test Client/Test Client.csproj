@@ -48,7 +48,7 @@
       <HintPath>..\..\Test Admin\Test\bin\Debug\Test.dll</HintPath>
     </Reference>
     <Reference Include="TestStudent">
-      <HintPath>..\..\Test Admin\Test\bin\Debug\TestStudent.dll</HintPath>
+      <HintPath>..\..\Test Designer\TestStudent\bin\Debug\TestStudent.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
