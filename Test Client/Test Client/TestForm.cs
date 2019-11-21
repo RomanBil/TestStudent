@@ -30,6 +30,8 @@ namespace Test_Client
         {
             InitializeComponent();
 
+            //test.NameStudent = string.Empty;
+
             test.NameStudent = NameStudent;
 
             test = tr;
