@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using TestNamespace;
@@ -24,7 +19,7 @@ namespace Test_Admin
 
         UdpClient clientSend = new UdpClient(/*new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47000)*/);
 
-        UdpClient clientReceive = new UdpClient(/*new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47001)*/);
+        UdpClient clientReceive = new UdpClient(new IPEndPoint(Dns.Resolve(SystemInformation.ComputerName).AddressList[0], 47001));
 
         List<StudentIp> students = new List<StudentIp>();
         
@@ -44,15 +39,6 @@ namespace Test_Admin
 
             receiveThread.Start(clientReceive);
 
-            //Thread readThread = new Thread(ReadResult);
-
-            //readThread.IsBackground = true;
-
-            //readThread.Start(clientReceive);
-
-
-
-
             //FileStream file = File.Open(@"C: \Users\s30 - r1\Source\Repos\TestStudent2\Test Admin\Test Admin\Tests\", FileMode.Open);
 
             //for (int i = 0; i < file.; i++)
@@ -60,47 +46,6 @@ namespace Test_Admin
                 //listView6
             //}
         }
-
-        //private void ReadResult(Object obj)
-        //{
-        //    UdpClient client = obj as UdpClient;
-
-        //    if (client == null)
-        //    {
-        //        throw new ArgumentException("Error");
-        //    }
-
-        //    while (true)
-        //    {
-        //        IPEndPoint endPoint = null; //new IPEndPoint(IPAddress.Any, 47002);
-
-        //        byte[] data = client.Receive(ref endPoint);
-
-        //        BinaryFormatter bf = new BinaryFormatter();
-
-        //        MemoryStream memstream = new MemoryStream(data);
-
-        //        TestResult res = (TestResult)bf.Deserialize(memstream);
-
-        //        memstream.Dispose();
-
-        //        for (int i = 0; i < students.Count(); i++)
-        //        {
-        //            if (students[i].LoginStudent == res.NameStudent) 
-        //            {
-        //                clientSend.Connect(students[i].iPAddressStudent, 47002);
-
-        //                MemoryStream memstream1 = new MemoryStream();
-
-        //                bf.Serialize(memstream1, res);
-
-        //                clientSend.Send(memstream1.ToArray(), (int)memstream1.Length);
-
-        //                memstream1.Dispose();
-        //            }
-        //        }
-        //    }
-        //}
 
         private void MyThread(Object obj)
         {
@@ -130,7 +75,7 @@ namespace Test_Admin
                     listView4.Invoke(new Action(() => { listView4.Items.Add(students[students.Count - 1].LoginStudent); }));
                 }
 
-                catch (Exception)//no Exception
+                catch (ArgumentException)
                 {
                     TestResult res = (TestResult)bf.Deserialize(memstream);
 
@@ -182,7 +127,26 @@ namespace Test_Admin
             {
                 //if (students[i].LoginStudent == "123")
                 {
-                    TestResult test = TestResult.ToTestResult(new Test() { Name = "asdasfasdf" });
+                    AnswerResult answerResult1 = new AnswerResult() { TextAnswer = "3", Corect = false, StudentCheck = true };
+
+                    AnswerResult answerResult2 = new AnswerResult() { TextAnswer = "4", Corect = true, StudentCheck = false };
+
+                    QuestionResult question = new QuestionResult() { TextQuestion = "2+2",Answers=new List<AnswerResult>() };
+
+                    question.Answers.Add(answerResult1);
+
+                    question.Answers.Add(answerResult2);
+
+                    TestResult test = new TestResult()
+                    {
+                        Name = "asdasfasdf",
+                        Author = "I",
+                        CreateDate = DateTime.Now,
+                        Subject = "test",
+                        Questions = new List<QuestionResult>()
+                    };
+
+                    test.Questions.Add(question);
 
                     clientSend.Connect(students[i].iPAddressStudent, 47000);
 
